@@ -10,10 +10,17 @@ import com.dao.PersonneDaoImpl;
 import com.javabeins.Personne;
 
 
+import java.io.PrintWriter;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
 /**
  * Servlet implementation class Acceuil
  */
-@WebServlet("/acceuil")
+//@WebServlet("/acceuil")
 public class Acceuil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	PersonneDaoImpl personnes;

@@ -40,7 +40,6 @@ public class ChambreDaoImpl implements ChambreDao {
 				int nbr_lit = resultat.getInt("nbr_lit");
 				int etage = resultat.getInt("etage");
 				int n_chambre = resultat.getInt("n_chambre");
-				//String cin = resultat.getString("cin");
 				String game = resultat.getString("game");
 				String telephone = resultat.getString("telephone");
 				int is_free = resultat.getInt("is_free");

@@ -42,9 +42,9 @@ public class ReservationsDaoImpl implements ReservationsDao {
 				String date_arriver = resultat.getString("date_arriver");
 				String date_depart = resultat.getString("date_depart");
 				String mode_payement = resultat.getString("mode_payement");
-				String durre = resultat.getString("durre");
+				int durre = resultat.getInt("durre");
 
-				Reservation reservation = new Reservation(id,id_chambre,id_client,date_arriver,date_depart,mode_payement,durre);
+				Reservation reservation = new Reservation(id,id_client,id_chambre,date_arriver,date_depart,mode_payement,durre);
 				reservations.add(reservation);
 			}
 		} catch (SQLException e) {
