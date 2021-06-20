@@ -46,8 +46,8 @@ public class DaoConfig {
 			AdminsDaoImpl adminDaoImp  =  new AdminsDaoImpl(this);
 			 return adminDaoImp;
 		}
-		public ClientDaoImpl getClientDao() {
-			ClientDaoImpl clientDaoImp  =  new ClientDaoImpl(this);
+		public ClientsDaoImpl getClientDao() {
+			ClientsDaoImpl clientDaoImp  =  new ClientsDaoImpl(this);
 			 return clientDaoImp;
 		}
 		public ChambreDaoImpl getChambreDao() {
