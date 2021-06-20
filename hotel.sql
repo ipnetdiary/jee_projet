@@ -35,6 +35,8 @@ CREATE TABLE IF NOT EXISTS `admins` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `chambre` (
   `titre_chambre` varchar(20) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -86,7 +89,8 @@ CREATE TABLE IF NOT EXISTS `media` (
   `id_chambre` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_chambre` (`id_chambre`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -107,6 +111,7 @@ CREATE TABLE IF NOT EXISTS `reservations` (
   KEY `id_chambre` (`id_chambre`),
   KEY `id_client` (`id_client`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 --
 -- Contraintes pour les tables déchargées
