@@ -9,13 +9,13 @@ public class Chambre {
 	private int n_chambre;
 	private String game;
 	private String telephone;
-	private boolean is_free;
+	private int is_free;
 	private int prix;
 
 	public Chambre() {
 		super();
 	}
-	public Chambre( int nbr_lit, int etage, int n_chambre,  String game, String telephone,boolean is_free,int prix) {
+	public Chambre( int nbr_lit, int etage, int n_chambre,  String game, String telephone,int is_free,int prix) {
 		this.nbr_lit = nbr_lit;
 		this.etage= etage;
 		this.n_chambre= n_chambre;
@@ -24,7 +24,7 @@ public class Chambre {
 		this.is_free = is_free;
 	}
 	
-	public Chambre(int id, String nbr_lit, String etage, int n_chambre, String game, String telephone,boolean is_free,int prix) {
+	public Chambre(int id, int nbr_lit, int etage, int n_chambre, String game, String telephone,int is_free,int prix) {
 		this.id = id;
 		this.nbr_lit = nbr_lit;
 		this.etage= etage;
@@ -70,10 +70,10 @@ public class Chambre {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public boolean isIs_free() {
+	public int isIs_free() {
 		return is_free;
 	}
-	public void setIs_free(boolean is_free) {
+	public void setIs_free(int is_free) {
 		this.is_free = is_free;
 	}
 	public int getPrix() {
@@ -81,4 +81,4 @@ public class Chambre {
 	}
 	public void setPrix(int prix) {
 		this.prix = prix;
-	}
+	}}

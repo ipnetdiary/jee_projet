@@ -16,5 +16,6 @@
 		<servlet-name>acceuil</servlet-name>
 		<url-pattern>/acceuil</url-pattern>
 	</servlet-mapping>
+	
 
 </web-app>
