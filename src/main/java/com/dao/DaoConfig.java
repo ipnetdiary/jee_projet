@@ -23,7 +23,7 @@ public class DaoConfig {
 	
 		public static DaoConfig getInstance() throws SQLException, ClassNotFoundException {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/jee";
+			String url = "jdbc:mysql://localhost:3306/hotel";
 			String username = "root";
 			String password = "";
 			DaoConfig daoConfig = new DaoConfig(url,username,password);
@@ -42,9 +42,21 @@ public class DaoConfig {
 		}
 		
 		
-		public PersonneDaoImpl getPersonnesDao() {
-			PersonneDaoImpl personneDaoImp  =  new PersonneDaoImpl(this);
-			 return personneDaoImp;
+		public AdminsDaoImpl getAdminsDao() {
+			AdminsDaoImpl adminDaoImp  =  new AdminsDaoImpl(this);
+			 return adminDaoImp;
+		}
+		public ClientDaoImpl getClientDao() {
+			ClientDaoImpl clientDaoImp  =  new ClientDaoImpl(this);
+			 return clientDaoImp;
+		}
+		public ChambreDaoImpl getChambreDao() {
+			ChambreDaoImpl chambreDaoImp  =  new ChambreDaoImpl(this);
+			 return chambreDaoImp;
 		}
 		
+		public ReservationsDaoImpl getChambreDao() {
+			ReservationsDaoImpl reservationsDaoImp  =  new ReservationsDaoImpl(this);
+			 return reservationsDaoImp;
+		}
 }
