@@ -13,6 +13,7 @@ import com.javabeins.Personne;
 public class ChambreDaoImpl implements ChambreDao {
 
 	DaoConfig daoConfig;
+	private Connection con;
 
 	public ChambreDaoImpl(DaoConfig daoConfig) {
 		this.daoConfig = daoConfig;
@@ -57,50 +58,68 @@ public class ChambreDaoImpl implements ChambreDao {
 	@Override
 	public void ajouter(Chambre ch) {
 		// TODO Auto-generated method stub
-		Statement stmt = con.createStatement();
+		
+		con = null;
+		Statement stmt = null;
+		try {
+		stmt = con.createStatement();
 		String query = "INSERT INTO `chambre`" + "( `nbr_lit`, `etage`, "
 				+ "`n_chambre`, `game`, `telephone`, `is_free`, `prix`) " 
 		+ "VALUES( " 
-				+ "'" +ch.getNbrLit() + "',"
+				+ "'" +ch.getNbr_lit() + "',"
 				+ "'" +ch.getEtage() + "'," 
-				+ "'" +ch.getNChambre() + "'," 
+				+ "'" +ch.getN_chambre() + "'," 
 				+ "'" +ch.getGame() + "'," 
 				+ "'" +ch.getTelephone() + "',"
-				+ "'" +ch.getIsFree() + "',"
+				+ "'" +ch.isIs_free() + "',"
 				+ "'" + ch.getPrix() + "')";
 		System.out.print(query);
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+		 stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void modifier(Chambre ch, int id) {
+		con = null;
+		Statement stmt = null;
+		try {
 		// TODO Auto-generated method stub
-		Statement stmt = con.createStatement();
+		stmt = con.createStatement();
         String query = " UPDATE chambre "
-                + " SET nbr_lit='" + ch.getNbrLit()
+                + " SET nbr_lit='" + ch.getNbr_lit()
                 + "', etage='" + ch.getEtage()
-                + "', n_chambre='" + ch.getNChambre()
+                + "', n_chambre='" + ch.getN_chambre()
                 + "', game='" + ch.getGame()
                 + "', telephone='" + ch.getTelephone()
-                + "', is_free='" + ch.getKMParcouru()
+                + "', is_free='" + ch.isIs_free()
                 + "', prix='" + ch.getPrix()
                 + "' WHERE id = " + id + " ";
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+		stmt.executeUpdate(query);
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void supprimer(int id) {
 		// TODO Auto-generated method stub
-		Statement stmt = con.createStatement();
+		Statement stmt = null;
+		try {
+			stmt = con.createStatement();
+			String query = "DELETE FROM chambre WHERE id = '" + id + "' ";
 
-		String query = "DELETE FROM chambre WHERE id = '" + id + "' ";
+			stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+		
+	
 	}
 
 	

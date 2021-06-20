@@ -1,11 +1,19 @@
 package com.dao;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
 import com.javabeins.Personne;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
+import com.javabeins.Reservation;
 
 public class ReservationsDaoImpl implements ReservationsDao {
 
 	DaoConfig daoConfig;
+	Connection con = null;
 
 	public ReservationsDaoImpl(DaoConfig daoConfig) {
 		this.daoConfig = daoConfig;
@@ -14,7 +22,7 @@ public class ReservationsDaoImpl implements ReservationsDao {
 	@Override
 	public List<Reservation> lister() {
 		// TODO Auto-generated method stub
-		Connection con = null;
+		
 		Statement statement = null;
 		ResultSet resultat = null;
 
@@ -48,47 +56,64 @@ public class ReservationsDaoImpl implements ReservationsDao {
 	@Override
 	public void ajouter(Reservation resv) {
 		// TODO Auto-generated method stub
-		Statement stmt = con.createStatement();
+		Statement stmt;
+		try {
+			stmt = con.createStatement();
+	
 		String query = "INSERT INTO `reservations`" + "( `id_chambre`, `id_client`, "
 				+ "`date_arriver`, `date_depart`, `mode_payement`, `durre`) " 
 		+ "VALUES( " 
-				+ "'" +resv.getIdChambre() + "',"
-				+ "'" +resv.getIdClient() + "'," 
-				+ "'" +resv.getDateArriver() + "'," 
-				+ "'" +resv.getDateDepart() + "'," 
-				+ "'" +resv.getModePayement() + "',"
+				+ "'" +resv.getId_chambre() + "',"
+				+ "'" +resv.getId_client() + "'," 
+				+ "'" +resv.getDate_arriver() + "'," 
+				+ "'" +resv.getDate_depart() + "'," 
+				+ "'" +resv.getMode_payement() + "',"
 				+ "'" + resv.getDurre() + "')";
 		System.out.print(query);
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+		stmt.executeUpdate(query);
+		
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
 	public void modifier(Reservation resv, int id) {
 		// TODO Auto-generated method stub
+		try {
 		Statement stmt = con.createStatement();
         String query = " UPDATE reservations "
-                + " SET id_chambre='" + resv.getIdChambre()
-                + "', id_client='" + resv.getIdClient()
-                + "', date_arriver='" + resv.getDateArriver()
-                + "', date_depart='" + resv.getDateDepart()
-                + "', mode_payement='" + resv.getModePayement()
+                + " SET id_chambre='" + resv.getId_chambre()
+                + "', id_client='" + resv.getId_client()
+                + "', date_arriver='" + resv.getDate_arriver()
+                + "', date_depart='" + resv.getDate_depart()
+                + "', mode_payement='" + resv.getMode_payement()
                 + "', durre='" + resv.getDurre()
                 + "' WHERE id = " + id + " ";
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+        	stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	@Override
 	public void supprimer(int id) {
 		// TODO Auto-generated method stub
+		try {
 		Statement stmt = con.createStatement();
 
 		String query = "DELETE FROM reservations WHERE id = '" + id + "' ";
 
-		int nbUpdated = stmt.executeUpdate(query);
-		return nbUpdated > 0;
+		stmt.executeUpdate(query);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
+
 }
