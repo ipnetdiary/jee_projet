@@ -3,7 +3,7 @@ package com.dao;
 import com.javabeins.Personne;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
-public class AdminsDaoImpl {
+public class AdminsDaoImpl  implements AdminsDao {
 	DaoConfig daoConfig;
 
 	public AdminsDaoImpl(DaoConfig daoConfig) {

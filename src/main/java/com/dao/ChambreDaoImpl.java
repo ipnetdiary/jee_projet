@@ -10,7 +10,7 @@ import java.util.List;
 import com.javabeins.Personne;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
-public class ChambreDaoImpl implements PersonneDao {
+public class ChambreDaoImpl implements ChambreDao {
 
 	DaoConfig daoConfig;
 
