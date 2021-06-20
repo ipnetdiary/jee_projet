@@ -23,7 +23,7 @@ public class DaoConfig {
 	
 		public static DaoConfig getInstance() throws SQLException, ClassNotFoundException {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/jee";
+			String url = "jdbc:mysql://localhost:3306/hotel";
 			String username = "root";
 			String password = "";
 			DaoConfig daoConfig = new DaoConfig(url,username,password);
