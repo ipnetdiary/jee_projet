@@ -24,7 +24,7 @@ public class Chambre {
 		this.is_free = is_free;
 	}
 	
-	public Chambre(int id, String nbr_lit, String etage, int n_chambre, String game, String telephone,boolean is_free,int prix) {
+	public Chambre(int id, int nbr_lit, int etage, int n_chambre, String game, String telephone,boolean is_free,int prix) {
 		this.id = id;
 		this.nbr_lit = nbr_lit;
 		this.etage= etage;
@@ -82,3 +82,4 @@ public class Chambre {
 	public void setPrix(int prix) {
 		this.prix = prix;
 	}
+}
