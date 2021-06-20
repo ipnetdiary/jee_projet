@@ -15,16 +15,16 @@ public class Chambre {
 	public Chambre() {
 		super();
 	}
-	public Chambre( String nbr_lit, String etage, Strin n_chambre, String cin, String game, Date telephone,boolean is_free,int prix) {
-		super();
+	public Chambre( int nbr_lit, int etage, int n_chambre,  String game, String telephone,boolean is_free,int prix) {
 		this.nbr_lit = nbr_lit;
 		this.etage= etage;
 		this.n_chambre= n_chambre;
 		this.game=game;
 		this.telephone = telephone;
 		this.is_free = is_free;
-	public Chambre(int id, String nbr_lit, String etage, Strin n_chambre, String cin, String game, Date telephone,boolean is_free,int prix) {
-		super();
+	}
+	
+	public Chambre(int id, String nbr_lit, String etage, int n_chambre, String game, String telephone,boolean is_free,int prix) {
 		this.id = id;
 		this.nbr_lit = nbr_lit;
 		this.etage= etage;

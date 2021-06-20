@@ -7,8 +7,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.javabeins.Chambre;
 import com.javabeins.Personne;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes.Scalar.String;
 
 public class ChambreDaoImpl implements ChambreDao {
 
@@ -39,12 +39,13 @@ public class ChambreDaoImpl implements ChambreDao {
 				int nbr_lit = resultat.getInt("nbr_lit");
 				int etage = resultat.getInt("etage");
 				int n_chambre = resultat.getInt("n_chambre");
+				String cin = resultat.getString("cin");
 				int game = resultat.getInt("game");
 				String telephone = resultat.getString("telephone");
 				int is_free = resultat.getInt("is_free");
 				int prix = resultat.getInt("prix");
 
-				Chambre chambre = new Chambre(id, nbr_lit, etage, n_chambre, game, telephone, is_free, prix);
+				Chambre chambre = new Chambre(id, nbr_lit, etage, n_chambre, cin, game, telephone, is_free, prix);
 				chambres.add(chambre);
 			}
 		} catch (SQLException e) {
@@ -101,5 +102,7 @@ public class ChambreDaoImpl implements ChambreDao {
 		int nbUpdated = stmt.executeUpdate(query);
 		return nbUpdated > 0;
 	}
+
+	
 
 }
