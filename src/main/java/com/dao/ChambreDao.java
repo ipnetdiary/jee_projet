@@ -1,5 +1,7 @@
 package com.dao;
+import java.util.List;
 
+import com.javabeins.*;
 public interface ChambreDao {
 	List<Chambre> lister();
 	void ajouter(Chambre ch);

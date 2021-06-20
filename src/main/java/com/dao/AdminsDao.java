@@ -1,5 +1,7 @@
 package com.dao;
+import java.util.List;
 
+import com.javabeins.*;
 public interface AdminsDao {
 	List<Admin> lister();
 	void ajouter(Admin adm);
