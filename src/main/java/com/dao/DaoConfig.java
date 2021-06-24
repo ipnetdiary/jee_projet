@@ -55,7 +55,7 @@ public class DaoConfig {
 			 return chambreDaoImp;
 		}
 		
-		public ReservationsDaoImpl getReservationDao() {
+		public ReservationsDaoImpl getReservationsDao() {
 			ReservationsDaoImpl reservationsDaoImp  =  new ReservationsDaoImpl(this);
 			 return reservationsDaoImp;
 		}

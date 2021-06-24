@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<element>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 			xmlns="http://JAVA.sun.com/xml/ns/javaee" 
 			xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
@@ -12,10 +12,38 @@
 		<servlet-class>com.servlets.Acceuil</servlet-class>
 	</servlet>
 	
+	<servlet>
+		<servlet-name>acceuilServlet</servlet-name>
+		<servlet-class>com.servlets.AcceuilServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>adminlServlet</servlet-name>
+		<servlet-class>com.servlets.AdminServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>reservationServlet</servlet-name>
+		<servlet-class>com.servlets.ReservationServlet</servlet-class>
+	</servlet>
+	
 	<servlet-mapping>
 		<servlet-name>acceuil</servlet-name>
 		<url-pattern>/acceuil</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>acceuilServlet</servlet-name>
+		<url-pattern>/AcceuilServlet</url-pattern>
+	</servlet-mapping>
 
+<servlet-mapping>
+		<servlet-name>adminlServlet</servlet-name>
+		<url-pattern>/AdminServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>reservationServlet</servlet-name>
+		<url-pattern>/ReservationServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
+</element>

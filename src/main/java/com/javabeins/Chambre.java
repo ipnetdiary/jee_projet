@@ -22,6 +22,7 @@ public class Chambre {
 		this.game=game;
 		this.telephone = telephone;
 		this.is_free = is_free;
+		this.prix = prix ;
 	}
 	
 

@@ -2,17 +2,18 @@ package com.servlets;
 
 import java.io.IOException;
 
+
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.dao.DaoConfig;
 import com.dao.PersonneDaoImpl;
 import com.javabeins.Personne;
 
 
-import java.io.PrintWriter;
-
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -20,7 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Acceuil
  */
-//@WebServlet("/acceuil")
+@WebServlet("/acceuil")
 public class Acceuil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	PersonneDaoImpl personnes;
@@ -37,7 +38,7 @@ public class Acceuil extends HttpServlet {
         	
 			DaoConfig daoConfig = DaoConfig.getInstance();
 			
-			personnes = daoConfig.getPersonnesDao();
+			//personnes = daoConfig.getPersonnesDao();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -54,7 +55,7 @@ public class Acceuil extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		 List<Personne> personnesdb = new ArrayList<Personne>();
+		 List <Personne> personnesdb = new ArrayList<Personne>();
 		 
 		 personnesdb = personnes.lister();
 		 System.out.println(personnesdb);
@@ -67,7 +68,8 @@ public class Acceuil extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//doGet(request, response);
+		
 	}
 
 }
